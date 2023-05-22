@@ -1,0 +1,53 @@
+#Character-List img {
+    width: 250px;
+    height: 250px;
+}
+
+.character-card img {
+    width: 500px;
+    height: 500px;
+}
+
+body {
+    background-image: url("path/to/star-wars-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #000000;
+}
+#Character-List {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Add this line */
+    gap: 20px;
+    text-align: center; /* Add this line */
+}
+
+.character-card {
+    width: 500px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto; /* Add this line */
+    cursor: pointer;
+}
+
+.character-card:hover {
+    background-color: #eaeaea;
+}
+
+.character-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.character-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.character-birth-year {
+    margin-top: 5px;
+}
