@@ -49,7 +49,6 @@ let arrayOfImages = [
 
 function addImage(json) {
     let people = json.results;
-
     people.forEach(obj => {
         arrayOfImages.forEach(imageObj => {
             if (obj.name === imageObj.name) {
@@ -70,7 +69,6 @@ function loadCharacterImages(json) {
         characterElement.setAttribute('src', imageObj.image);
         characterList.appendChild(characterElement);
         characters.push(characterElement);
-
         characterElement.addEventListener('click', () => {
             showCharacterDetails(character[index]);
         });
