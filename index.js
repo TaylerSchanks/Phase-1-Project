@@ -62,138 +62,51 @@ function addImage(json) {
 function loadCharacterImages(json) {
     addImage(json);
     let character = json.results;
-
+    let currentCharacterIndex = 0;
+    let characters = [];
     const characterList = document.querySelector("#Character-List")
-    const lukeSkywalkerElement = document.createElement('img')
-    const c3poElement = document.createElement('img')
-    const r2d2Element = document.createElement('img')
-    const darthVaderElement = document.createElement('img')
-    const leiaOrganaElement = document.createElement('img')
-    const owenLarsElement = document.createElement('img')
-    const beruWhitesunLarsElement = document.createElement('img')
-    const r5d4Element = document.createElement('img')
-    const biggsDarklighterElement = document.createElement('img')
-    const obiWanKenobiElement = document.createElement('img')
-    characterList.appendChild(lukeSkywalkerElement)
-    characterList.appendChild(c3poElement)
-    characterList.appendChild(r2d2Element)
-    characterList.appendChild(darthVaderElement)
-    characterList.appendChild(leiaOrganaElement)
-    characterList.appendChild(owenLarsElement)
-    characterList.appendChild(beruWhitesunLarsElement)
-    characterList.appendChild(r5d4Element)
-    characterList.appendChild(biggsDarklighterElement)
-    characterList.appendChild(obiWanKenobiElement)
-    document.body.appendChild(characterList)
-    const lukeSkyWalkerImage = "Images/Luke Skywalker.jpg"
-    const c3poImage = "Images/C-3PO.jpg"
-    const r2d2Image = "Images/R2-D2.jpeg"
-    const darthVaderImage = "Images/Darth Vader.jpg"
-    const leiaOrganaImage = "Images/Leia Organa.jpeg"
-    const owenLarsImage = "Images/Owen Lars.jpg"
-    const beruWhitesunLarsImage = "Images/Beru Whitesun lars.jpg"
-    const r5d4Image = "Images/R5-D4.jpeg"
-    const biggsDarkLighterImage = "Images/Biggs Darklighter.jpeg"
-    const obiWanKenobiImage = "Images/Obi-Wan Kenobi.jpeg"
-    lukeSkywalkerElement.setAttribute('src', lukeSkyWalkerImage)
-    c3poElement.setAttribute('src', c3poImage)
-    r2d2Element.setAttribute('src', r2d2Image)
-    darthVaderElement.setAttribute('src', darthVaderImage)
-    leiaOrganaElement.setAttribute('src', leiaOrganaImage)
-    owenLarsElement.setAttribute('src', owenLarsImage)
-    beruWhitesunLarsElement.setAttribute('src', beruWhitesunLarsImage)
-    r5d4Element.setAttribute('src', r5d4Image)
-    biggsDarklighterElement.setAttribute('src', biggsDarkLighterImage)
-    obiWanKenobiElement.setAttribute('src', obiWanKenobiImage)
+    arrayOfImages.forEach((imageObj, index) => {
+        const characterElement = document.createElement('img');
+        characterElement.setAttribute('src', imageObj.image);
+        characterList.appendChild(characterElement);
+        characters.push(characterElement);
 
+        characterElement.addEventListener('click', () => {
+            showCharacterDetails(character[index]);
+        });
+    });
 
-    lukeSkywalkerElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[0].name
-        let image = document.querySelector(".character-image")
-        image.src = lukeSkyWalkerImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[0].birth_year
-    })
+    document.body.appendChild(characterList);
 
-    c3poElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[1].name
-        let image = document.querySelector(".character-image")
-        image.src = c3poImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[1].birth_year
-    })
+    function showCharacterDetails(characterData) {
+        let name = document.querySelector('.character-name');
+        name.innerText = characterData.name;
 
-    r2d2Element.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[2].name
-        let image = document.querySelector(".character-image")
-        image.src = r2d2Image
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[2].birth_year
-    })
+        let image = document.querySelector(".character-image");
+        image.src = characterData.image;
 
-    darthVaderElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[3].name
-        let image = document.querySelector(".character-image")
-        image.src = darthVaderImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[3].birth_year
-    })
+        let birthYear = document.querySelector(".character-birth-year");
+        birthYear.innerText = characterData.birth_year;
+    }
 
-    leiaOrganaElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[4].name
-        let image = document.querySelector(".character-image")
-        image.src = leiaOrganaImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[4].birth_year
-    })
+    function navigateLeft() {
+        currentCharacterIndex = (currentCharacterIndex - 1 + characters.length) % characters.length;
+        showCharacterDetails(character[currentCharacterIndex]);
+    }
 
-    owenLarsElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[5].name
-        let image = document.querySelector(".character-image")
-        image.src = owenLarsImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[5].birth_year
-    })
+    function navigateRight() {
+        currentCharacterIndex = (currentCharacterIndex + 1) % characters.length;
+        showCharacterDetails(character[currentCharacterIndex]);
+    }
 
-    beruWhitesunLarsElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[6].name
-        let image = document.querySelector(".character-image")
-        image.src = beruWhitesunLarsImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[6].birth_year
-    })
-
-    r5d4Element.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[7].name
-        let image = document.querySelector(".character-image")
-        image.src = r5d4Image
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[7].birth_year
-    })
-
-    biggsDarklighterElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[8].name
-        let image = document.querySelector(".character-image")
-        image.src = biggsDarkLighterImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[8].birth_year
-    })
-
-    obiWanKenobiElement.addEventListener('click', () => {
-        let name = document.querySelector('.character-name')
-        name.innerText = character[9].name
-        let image = document.querySelector(".character-image")
-        image.src = obiWanKenobiImage
-        let birthYear = document.querySelector(".character-birth-year")
-        birthYear.innerText = character[9].birth_year
-    })
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+            navigateLeft();
+        } else if (event.key === 'ArrowRight') {
+            navigateRight();
+        }
+    });
+    showCharacterDetails(character[0]);
 }
+
+
