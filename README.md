@@ -2,6 +2,9 @@
 
 **Star Wars: Galactic Inquiry** is a simple picker tool that allows for the user to select a character portrait and view some of the character's bio.
 
+##Demo
+
+
 ## How it works
 
 The Galactic Inquiry fetches data from the [SWAPI](https://swapi.dev/api/people/) open API where only name and birth year are used.
@@ -68,7 +71,27 @@ function addImage(json) {
     });
 }
 ```
+Next, I wrote a function called ```loadCharacterImages(json)``` as shown below:
+```js
+function loadCharacterImages(json) {
+    addImage(json);
+    let character = json.results;
+    let currentCharacterIndex = 0;
+    let characters = [];
+    const characterList = document.querySelector("#Character-List")
+    arrayOfImages.forEach((imageObj, index) => {
+        const characterElement = document.createElement('img');
+        characterElement.setAttribute('src', imageObj.image);
+        characterList.appendChild(characterElement);
+        characters.push(characterElement);
+        characterElement.addEventListener('click', () => {
+            showCharacterDetails(character[index]);
+        });
+    });
 
+    document.body.appendChild(characterList);
+```
+This function takes the json data from the fetch request as the parameter and passes it into the ```addImage``` function to get the image added to the character's bio.  ```loadCharacterImages``` 
 
 ## Credit
 
