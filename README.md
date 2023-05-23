@@ -91,7 +91,7 @@ function loadCharacterImages(json) {
 
     document.body.appendChild(characterList);
 ```
-This function takes the json data from the fetch request as the parameter and passes it into the ```addImage``` function to get the image added to the character's bio.  ```loadCharacterImages``` 
+This function takes the json data from the fetch request as the parameter and passes it into the ```addImage``` function to get the image added to the character's bio.  ```loadCharacterImages``` loops through each object given by the json data and creates an image element, appends the element to the DOM, pushes the image to the ```characters``` array, and lastly adds an event listener to show the character's bio (I'll explain what ```showCharacterDetails``` is next, just know it's being used to display the character's bio in the main element of the page.)
 
 ## Credit
 
