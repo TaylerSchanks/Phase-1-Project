@@ -132,6 +132,10 @@ function navigateLeft() {
     });
     showCharacterDetails(character[0]);
 ```
+The ```currentCharacterIndex``` was set to 0 in the ```loadCharacterImages()``` function.  What is happening here is that the function ```navigateLeft()``` is taking the current index (there are 10 characters loaded from the json so index 0-9 are available), subtracting 1, adding the full character length (10), then taking that value from the parenthesis and remaindering it against the full character length.  This ensures that when you are at the first index and you hit the left arrow key, the last index will be displayed.  Another way to think about it is you can infinitely press the left arrow key and cycle through all 10 indexes.
+
+```navigateRight()``` is doing the same thing as ```navigateLeft()``` but in the opposite direction
+Finally, ```showCharacterDetails(character[0])``` is ensuring that when the page is refreshed, it will always display the ```[0]``` index from the json data.
 ## Credit
 
 I got all the JPEGs from Google Images 
