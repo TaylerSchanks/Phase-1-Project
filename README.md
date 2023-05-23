@@ -8,7 +8,7 @@ The Galactic Inquiry fetches data from the [SWAPI](https://swapi.dev/api/people/
 
 The API did not have images for the characters, so I had to add my own JPEGs.
 
-The following is an array I made so that an image of the character could be shown:
+The following is an array I made.  They key ```name:``` is used to match the key being fetched from the API for further use.
 
 ```js
 let arrayOfImages = [
@@ -70,3 +70,6 @@ function addImage(json) {
 ```
 
 
+## Credit
+
+I got all the JPEGs from Google Images 
