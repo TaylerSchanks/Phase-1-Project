@@ -2,7 +2,7 @@
 
 **Star Wars: Galactic Inquiry** is a simple picker tool that allows for the user to select a character portrait and view some of the character's bio.
 
-##Demo
+## Demo
 
 
 ## How it works
@@ -92,6 +92,22 @@ function loadCharacterImages(json) {
     document.body.appendChild(characterList);
 ```
 This function takes the json data from the fetch request as the parameter and passes it into the ```addImage``` function to get the image added to the character's bio.  ```loadCharacterImages``` loops through each object given by the json data and creates an image element, appends the element to the DOM, pushes the image to the ```characters``` array, and lastly adds an event listener to show the character's bio (I'll explain what ```showCharacterDetails``` is next, just know it's being used to display the character's bio in the main element of the page.)
+
+Now lets look at the ```showCharacterDetails()``` function:
+
+```js
+function showCharacterDetails(characterData) {
+        let name = document.querySelector('.character-name');
+        name.innerText = characterData.name;
+
+        let image = document.querySelector(".character-image");
+        image.src = characterData.image;
+
+        let birthYear = document.querySelector(".character-birth-year");
+        birthYear.innerText = characterData.birth_year;
+    }
+```
+This function is used in the ```loadCharacterImages``` function so that every time an image element is clicked on, the main ```"#character-card"``` is populated with the clicked on images character details.
 
 ## Credit
 
