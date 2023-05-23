@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 The API did not have images for the characters, so I had to add my own JPEGs.
 
-The following is an array I made to add JPEG images later.  They key ```name:``` is used to match the key being fetched from the API.
+The following is an array I made to add JPEG images later.  The key ```name:``` is used to match the key being fetched from the API.
 
 ```js
 let arrayOfImages = [
@@ -117,9 +117,9 @@ function showCharacterDetails(characterData) {
         birthYear.innerText = characterData.birth_year;
     }
 ```
-This function is used in the ```loadCharacterImages``` function so that every time an image element is clicked on, the main ```"#character-card"``` is populated with the clicked on images character details.
+This function is used in the ```loadCharacterImages``` function so that every time an image element is clicked on, the main ```"#character-card"``` is populated with the clicked on image's character details.
 
-As of right now, **Star Wars: Galactic Inquiry** takes json data from the [SWAPI](https://swapi.dev/api/people/) open API, adds images to the character's objects, creates image elements to house the images, displays the character's bio with an image in the main ```#character-card```.  The ```#character-card``` is updated for each image selected on.
+As of right now, **Star Wars: Galactic Inquiry** takes json data from the [SWAPI](https://swapi.dev/api/people/) open API, adds images to the character's objects, creates image elements to house the images, displays the character's bio with an image in the main ```#character-card```.  The ```#character-card``` is updated for each image selected.
 
 Lastly, is the ability to use not just the left click on the mouse, but the left and right arrow keys to move between the character list.  Let's look at the functions I created to do this:
 ```js
