@@ -109,6 +109,29 @@ function showCharacterDetails(characterData) {
 ```
 This function is used in the ```loadCharacterImages``` function so that every time an image element is clicked on, the main ```"#character-card"``` is populated with the clicked on images character details.
 
+As of right now, **Star Wars: Galactic Inquiry** takes json data from the [SWAPI](https://swapi.dev/api/people/) open API, adds images to the character's objects, creates image elements to house the images, displays the character's bio with an image in the main ```#character-card```.  The ```#character-card``` is updated for each image selected on.
+
+Lastly, is the ability to use not just the left click on the mouse, but the left and right arrow keys to move between the character list.  Let's look at the functions I created to do this:
+```js
+function navigateLeft() {
+        currentCharacterIndex = (currentCharacterIndex - 1 + characters.length) % characters.length;
+        showCharacterDetails(character[currentCharacterIndex]);
+    }
+
+    function navigateRight() {
+        currentCharacterIndex = (currentCharacterIndex + 1) % characters.length;
+        showCharacterDetails(character[currentCharacterIndex]);
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+            navigateLeft();
+        } else if (event.key === 'ArrowRight') {
+            navigateRight();
+        }
+    });
+    showCharacterDetails(character[0]);
+```
 ## Credit
 
 I got all the JPEGs from Google Images 
