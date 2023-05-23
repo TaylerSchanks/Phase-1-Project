@@ -9,6 +9,16 @@
 
 The Galactic Inquiry fetches data from the [SWAPI](https://swapi.dev/api/people/) open API where only name and birth year are used.
 
+Here is the fetch request:
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("https://swapi.dev/api/people/")
+        .then(resp => resp.json())
+        .then(json => loadCharacterImages(json));
+});
+```
+
+
 The API did not have images for the characters, so I had to add my own JPEGs.
 
 The following is an array I made to add JPEG images later.  They key ```name:``` is used to match the key being fetched from the API.
