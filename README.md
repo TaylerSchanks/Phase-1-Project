@@ -3,7 +3,7 @@
 **Star Wars: Galactic Inquiry** is a simple picker tool that allows for the user to select a character portrait and view some of the character's bio.
 
 ## Demo
-![]
+![](https://github.com/TaylerSchanks/Phase-1-Project/blob/main/Images/Star_Wars_Qalactic_Inquiry%20GIF.gif)
 
 ## How it works
 
