@@ -56,6 +56,7 @@ function addImage(json) {
             }
         });
     });
+    console.log(people)
 }
 
 function loadCharacterImages(json) {
